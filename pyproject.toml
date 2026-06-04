@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mcgill-course-advisor-agent"
+version = "0.1.0"
+description = "Single-agent McGill-style course advising prototype using the OpenAI Agents SDK."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "openai-agents>=0.17.2",
+    "pydantic>=2.7",
+    "python-dotenv>=1.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+]
+
+[project.scripts]
+mcgill-advisor = "mcgill_advisor.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["mcgill_advisor*"]

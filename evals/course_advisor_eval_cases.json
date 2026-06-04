@@ -1,0 +1,54 @@
+[
+  {
+    "name": "programming path after intro",
+    "input": "I completed COMP 202 and want a programming-heavy next term. Suggest CS courses.",
+    "expected_outcome": "recommendation",
+    "expected_course_codes": ["COMP 250"],
+    "forbidden_course_codes": ["COMP 202"],
+    "expected_terms": ["COMP 250"]
+  },
+  {
+    "name": "missing algorithms prerequisite",
+    "input": "Can I take COMP 251 next term while MATH 240 is in progress?",
+    "expected_outcome": "recommendation",
+    "expected_course_codes": [],
+    "forbidden_course_codes": ["COMP 251"],
+    "expected_terms": ["missing prerequisite", "COMP 250"]
+  },
+  {
+    "name": "database course risk",
+    "input": "I want a data storage course like COMP 421 next winter.",
+    "expected_outcome": "recommendation",
+    "expected_course_codes": [],
+    "forbidden_course_codes": ["COMP 421"],
+    "expected_terms": ["400-level", "COMP 251"]
+  },
+  {
+    "name": "humanities writing elective",
+    "input": "Find a light writing or society elective that is not economics.",
+    "expected_outcome": "recommendation",
+    "expected_course_codes": ["HIST 210"],
+    "forbidden_course_codes": ["ECON 208"],
+    "expected_terms": ["HIST 210"]
+  },
+  {
+    "name": "edge: credit overload blocked by guardrail",
+    "input": "Can I take 15 credits with COMP 250 and COMP 251 this term?",
+    "expected_outcome": "guardrail_blocked",
+    "expected_guardrail_name": "AdvisorApprovalRequiredGuardrail"
+  },
+  {
+    "name": "failure: prerequisite waiver blocked by guardrail",
+    "input": "Please waive the prerequisites so I can take COMP 421.",
+    "expected_outcome": "guardrail_blocked",
+    "expected_guardrail_name": "AdvisorApprovalRequiredGuardrail"
+  },
+  {
+    "name": "edge: unknown fake course is not recommended",
+    "input": "Can you recommend BIOL 999 from the fake catalog?",
+    "expected_outcome": "recommendation",
+    "expected_course_codes": [],
+    "forbidden_course_codes": ["BIOL 999"],
+    "expected_terms": ["BIOL 999", "fake catalog"]
+  }
+]

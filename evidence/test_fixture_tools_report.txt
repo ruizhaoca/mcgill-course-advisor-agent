@@ -1,0 +1,9 @@
+﻿============================= test session starts =============================
+platform win32 -- Python 3.11.14, pytest-7.4.0, pluggy-1.0.0
+rootdir: D:\agent_test\mcgill-course-advisor-agent
+plugins: anyio-4.13.0
+collected 8 items
+
+tests\test_fixture_tools.py ........                                     [100%]
+
+============================== 8 passed in 2.14s ==============================
